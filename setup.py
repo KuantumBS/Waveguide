@@ -5,13 +5,11 @@ import sys
 from os import path
 
 from setuptools import setup  # find_packages
-from setuptools.command.test import test as TestCommand
+
 
 import waveguide
 
-
 root = path.abspath(path.dirname(__file__))
-
 
 def read(*filenames, **kwargs):
     encoding = kwargs.get('encoding', 'utf-8')
@@ -24,18 +22,6 @@ def read(*filenames, **kwargs):
 
 
 long_description = read('README.md')
-
-
-class PyTest(TestCommand):
-    def finalize_options(self):
-        TestCommand.finalize_options(self)
-        self.test_args = []
-        self.test_suite = True
-
-    def run_tests(self):
-        import pytest
-        errcode = pytest.main(self.test_args)
-        sys.exit(errcode)
 
 
 setup(
