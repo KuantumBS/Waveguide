@@ -30,7 +30,7 @@ classifiers = [
 ]
 
 [tool.setuptools_scm]
-version_file = "src/waveguide/_version.py"
+version_file = "waveguide/_version.py"
 version_scheme = "post-release"
 
 [project.urls]
