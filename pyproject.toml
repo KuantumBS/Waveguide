@@ -13,6 +13,12 @@ description = "Calculate the properties of rectangular waveguides"
 readme = "README.md"
 requires-python = ">=3.8"
 keywords = ["Waveguide"]
+dependencies = [
+      "numpy",
+      "scipy",
+      "scikit-rf",
+      "mathplotlib",
+]
 
 classifiers = [
     "Programming Language :: Python :: 3",
