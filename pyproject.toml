@@ -3,7 +3,7 @@ requires = ["setuptools", "wheel", "setuptools_scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pyproject.toml"
+name = "Waveguide"
 dynamic = ["version"]
 license = {file = "LICENSE"}
 authors = [
