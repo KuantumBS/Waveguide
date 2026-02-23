@@ -1,32 +1,29 @@
 """Install waveguide package."""
 
+from setuptools import setup, find_packages
 import io
+import re
 import sys
-from os import path
+import os
 
-from setuptools import setup  # find_packages
+# UTF-8 encoding sorunlarını çöz
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
 
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
-import waveguide
-
-root = path.abspath(path.dirname(__file__))
-
-def read(*filenames, **kwargs):
-    encoding = kwargs.get('encoding', 'utf-8')
-    sep = kwargs.get('sep', '\n')
-    buf = []
-    for filename in filenames:
-        with io.open(path.join(root, filename), encoding=encoding) as f:
-            buf.append(f.read())
-    return sep.join(buf)
-
-
-long_description = read('README.md')
+def get_version():
+    with open('Waveguide/__init__.py', 'r', encoding='utf-8') as f:
+        content = f.read()
+    match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]", content, re.M)
+    if match:
+        return match.group(1)
+    raise RuntimeError("Unable to find version string.")
 
 
 setup(
     name="waveguide",
-    version=waveguide.__version__,
+    version=get_version(),
     author="John Garrett",
     author_email="garrettj403@gmail.com",
     description="Calculate the properties of rectangular waveguides",
@@ -62,6 +59,8 @@ setup(
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
         "Programming Language :: Python :: 3.13",
+        "Programming Language :: Python :: 3.14",
+        "Programming Language :: Python :: 3.15",
     ],
     project_urls={
         'Changelog': 'https://github.com/garrettj403/Waveguide/blob/master/CHANGES.md',
