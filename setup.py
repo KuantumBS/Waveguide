@@ -41,8 +41,6 @@ setup(
         'examples': ['matplotlib',
                      'scikit-rf', ],
     },
-    tests_require=['pytest'],
-    cmdclass={'test': PyTest},
     long_description=long_description,
     long_description_content_type='text/markdown',
     platforms='any',
